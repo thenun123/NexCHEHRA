@@ -14,10 +14,9 @@ Built against imagekitio SDK v5.x (client.files.upload(...) — a private_key-
 only REST client; it does NOT need public_key/url_endpoint to make calls,
 the CDN URL for each file comes back directly in the upload response).
 """
-
+import requests
 import os
 import mimetypes
-
 from imagekitio import ImageKit
 
 from config import (
@@ -68,18 +67,17 @@ def upload_local_file(local_path: str, subfolder: str = "", file_name: str = Non
 
 def upload_from_url(source_url: str, file_name: str, subfolder: str = "") -> dict:
     """
-    Upload by pointing ImageKit at a remote URL (e.g. fal.ai's temporary output
-    URL) — ImageKit fetches it server-side, so we never touch local disk.
+    Fetch a remote file (e.g. fal.ai's temporary output URL) into memory and
+    upload it to ImageKit. Never touches local disk.
+
+    Note: the installed imagekitio SDK (v5.x) only accepts bytes/file-like
+    objects for `file=`, not a plain URL string, even though ImageKit's REST
+    API itself supports server-side URL fetch — so we download here instead.
     Returns {url, file_id, name}.
     """
-    ik = get_client()
-    result = ik.files.upload(
-        file=source_url,
-        file_name=file_name,
-        folder=_folder(subfolder),
-        use_unique_file_name=True,
-    )
-    return {"url": result.url, "file_id": result.file_id, "name": result.name}
+    resp = requests.get(source_url, timeout=60)
+    resp.raise_for_status()
+    return upload_bytes(resp.content, file_name, subfolder)
 
 
 def guess_content_type(file_name: str) -> str:
