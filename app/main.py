@@ -32,6 +32,13 @@ def create_app() -> Flask:
     flask_app.config["SECRET_KEY"] = FLASK_SECRET_KEY
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL  # Supabase in prod, sqlite locally
     flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    # Supabase's pooler silently drops idle connections — without pre_ping, SQLAlchemy
+    # tries to reuse a dead one and crashes with an "Internal Server Error" instead of
+    # quietly reconnecting. pool_recycle forces a refresh before the pooler's own cutoff.
+    flask_app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+        "pool_pre_ping": True,
+        "pool_recycle": 280,
+    }
 
     db.init_app(flask_app)
 
