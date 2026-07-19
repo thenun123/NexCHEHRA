@@ -1,0 +1,185 @@
+/* ═══════════ PIPELINE CAROUSEL ═══════════ */
+.pipeline-section {
+  position: relative;
+  z-index: 1;
+  padding: 100px 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.02) 50%, transparent 100%);
+}
+
+.pipeline-card-new {
+  flex-direction: column !important; /* Overrides the horizontal flex row of base slide-card */
+  padding: 0;
+}
+
+.pipeline-visual {
+  width: 100%;
+  height: 200px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.1) 0%, rgba(14, 14, 16, 0.95) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pipeline-step-glow {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.slide-card:hover .pipeline-step-glow {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  -webkit-text-stroke: 0;
+}
+
+/* Abstract UI Placeholders for Pipeline Visuals */
+.pipeline-abstract-ui {
+  width: 180px;
+  height: 110px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 2;
+}
+
+.ui-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ui-button {
+  margin-top: auto;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: rgba(59, 130, 246, 0.9);
+  font-size: 0.65rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-image-placeholder {
+  flex: 1;
+  border-radius: 8px;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px dashed rgba(168, 85, 247, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(168, 85, 247, 0.2);
+  border-top-color: rgba(168, 85, 247, 0.8);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.ui-timeline {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ui-timeline-play {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(74, 222, 128, 0.2);
+  color: rgba(74, 222, 128, 0.9);
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-timeline-track {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(74, 222, 128, 0.2);
+  position: relative;
+}
+
+.ui-timeline-track::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 40%;
+  background: rgba(74, 222, 128, 0.8);
+  border-radius: 2px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.pipeline-content {
+  padding: 24px 28px;
+}
+
+
+/* ═══════════ SHOWCASE CAROUSEL ═══════════ */
+.showcase-section {
+  position: relative;
+  z-index: 1;
+  padding: 100px 0;
+}
+
+.showcase-card-new {
+  flex-direction: column !important;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.showcase-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(14, 14, 16, 0.2) 0%, rgba(14, 14, 16, 0.95) 80%);
+  z-index: 1;
+}
+
+.showcase-content {
+  position: relative;
+  z-index: 2;
+  margin-top: auto; /* Pushes content to bottom */
+  padding: 32px 28px;
+}
+
+.showcase-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.showcase-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+}

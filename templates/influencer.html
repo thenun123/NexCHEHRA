@@ -1,0 +1,132 @@
+{% extends "base_app.html" %}
+
+{% block title %}Influencer — NEXCHEHRA{% endblock %}
+{% block nav_influencer %}active{% endblock %}
+
+{% block breadcrumb %}
+<span class="breadcrumb-current">Influencer</span>
+{% endblock %}
+
+{% block content %}
+<div class="influencer-page-header">
+  <h1 class="influencer-page-title">Find the Right Influencer</h1>
+  <p class="influencer-page-desc">Choose from our AI influencer roster or upload your own face to create branded content.</p>
+</div>
+
+<!-- Search -->
+<div class="influencer-page-search">
+  <input type="text" class="influencer-search-input" id="influencerSearch" placeholder="Search influencers..." oninput="searchInfluencers(this.value)">
+</div>
+
+<!-- Influencer Grid -->
+<div class="influencer-page-grid" id="influencerPageGrid"></div>
+
+<script>
+const pageInfluencers = [
+  {
+    id: 'aira',
+    name: 'Aira',
+    category: 'Fashion & Lifestyle',
+    image: '{{ static_url('images/aira.jpg') }}',
+    gender: 'female',
+    bodyType: 'normal',
+    tags: ['Fashion', 'Traditional', 'Elegant'],
+    prompt: 'Fashion influencer in red and gold traditional outfit, warm elegant lighting, half body shot',
+    desc: 'Elegant fashion influencer specializing in traditional and contemporary style. Perfect for luxury, beauty, and lifestyle brands.'
+  },
+  {
+    id: 'marcus',
+    name: 'Marcus',
+    category: 'Fitness & Lifestyle',
+    image: '{{ static_url('images/franklin.png') }}',
+    gender: 'male',
+    bodyType: 'chubby',
+    tags: ['Chubby', 'Bold', 'Confident'],
+    prompt: 'Chubby stocky man in a casual outfit, confident pose, warm lighting, half body shot, same chubby body type',
+    desc: 'Body-positive fitness influencer. Ideal for inclusive fitness brands, casual wear, and lifestyle products.'
+  },
+  {
+    id: 'franklin',
+    name: 'Franklin',
+    category: 'Street & Casual',
+    image: '{{ static_url('images/marcus.png') }}',
+    gender: 'male',
+    bodyType: 'normal',
+    tags: ['Street', 'Cap', 'Casual'],
+    prompt: 'Casual streetwear influencer in white tee and cap, relaxed vibe, natural lighting, half body shot',
+    desc: 'Urban streetwear enthusiast with a laid-back vibe. Great for streetwear brands, sneakers, and youth-oriented products.'
+  },
+  {
+    id: 'liberty',
+    name: 'Liberty',
+    category: 'Patriotic & Fashion',
+    image: '{{ static_url('images/liberty.png') }}',
+    gender: 'female',
+    bodyType: 'normal',
+    tags: ['Patriotic', 'Trendy', 'Bold'],
+    prompt: 'Patriotic fashion influencer with American flag accessories, denim vest, energetic and bold, headshot',
+    desc: 'Bold and trendy influencer with patriotic flair. Perfect for American brands, denim, and bold fashion statements.'
+  }
+];
+
+function renderInfluencerGrid(filter = '') {
+  const grid = document.getElementById('influencerPageGrid');
+  const filtered = filter
+    ? pageInfluencers.filter(inf => 
+        inf.name.toLowerCase().includes(filter.toLowerCase()) ||
+        inf.category.toLowerCase().includes(filter.toLowerCase()) ||
+        inf.tags.some(t => t.toLowerCase().includes(filter.toLowerCase()))
+      )
+    : pageInfluencers;
+
+  let html = filtered.map(inf => `
+    <div class="influencer-page-card" data-id="${inf.id}">
+      <img src="${inf.image}" alt="${inf.name}" class="influencer-page-card-img" onerror="this.style.display='none'">
+      <div class="influencer-page-card-body">
+        <div class="influencer-page-card-name">${inf.name}</div>
+        <div class="influencer-page-card-cat">${inf.category}</div>
+        <div class="influencer-page-card-tags">
+          ${inf.tags.map(t => `<span class="influencer-page-card-tag">${t}</span>`).join('')}
+        </div>
+        <p style="font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.5; margin-bottom: 14px;">${inf.desc}</p>
+        <button class="influencer-page-card-btn" onclick="useInfluencer('${inf.id}')">Use This Influencer →</button>
+      </div>
+    </div>
+  `).join('');
+
+  // Custom upload card
+  html += `
+    <div class="influencer-page-card">
+      <div class="influencer-page-card-upload">
+        <div class="influencer-page-card-upload-icon">✨</div>
+        <div class="influencer-page-card-upload-text">Upload Your Own</div>
+        <div class="influencer-page-card-upload-sub">Use your own face for branded content</div>
+      </div>
+      <div class="influencer-page-card-body">
+        <div class="influencer-page-card-name">Custom</div>
+        <div class="influencer-page-card-cat">Upload Your Own Reference</div>
+        <div class="influencer-page-card-tags">
+          <span class="influencer-page-card-tag">Custom</span>
+        </div>
+        <p style="font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.5; margin-bottom: 14px;">Upload your own reference photo and let AI preserve the exact face identity while applying your desired styling.</p>
+        <button class="influencer-page-card-btn" onclick="useInfluencer('custom')">Upload & Create →</button>
+      </div>
+    </div>
+  `;
+
+  grid.innerHTML = html;
+}
+
+function searchInfluencers(query) {
+  renderInfluencerGrid(query);
+}
+
+function useInfluencer(id) {
+  sessionStorage.setItem('selected_influencer', id);
+  window.location.href = '/video';
+}
+
+// Initial render
+renderInfluencerGrid();
+</script>
+{% endblock %}

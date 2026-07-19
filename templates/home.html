@@ -1,0 +1,69 @@
+{% extends "base_app.html" %}
+
+{% block title %}Home — NEXCHEHRA{% endblock %}
+{% block nav_home %}active{% endblock %}
+
+{% block breadcrumb %}
+<span class="breadcrumb-current">Home</span>
+{% endblock %}
+
+{% block content %}
+<!-- Welcome -->
+<div class="home-welcome">
+  <h1 class="home-welcome-title"><strong>Hello,</strong></h1>
+  <p class="home-welcome-sub">What would you like to create today?</p>
+</div>
+
+<!-- Quick Action Cards -->
+<div class="home-cards-grid">
+  <a href="/video" class="home-card" id="homeCardVideo">
+    <div class="home-card-media">
+      <video class="home-card-video" src="{{ static_url('vedio/Video Project.mp4') }}" autoplay loop muted playsinline></video>
+    </div>
+    <div class="home-card-body">
+      <div class="home-card-title text-center">Generate Video</div>
+    </div>
+  </a>
+
+  <a href="/explore" class="home-card" id="homeCardExplore">
+    <div class="home-card-media">
+      <video class="home-card-video" src="{{ static_url('outputs/video_session_1775591964778.mp4') }}" autoplay loop muted playsinline></video>
+    </div>
+    <div class="home-card-body">
+      <div class="home-card-title text-center">Explore Ideas</div>
+    </div>
+  </a>
+
+  <a href="/influencer" class="home-card" id="homeCardInfluencer">
+    <div class="home-card-media">
+      <video class="home-card-video" src="{{ static_url('vedio/create_me_a_motion_vedio_for_t.mp4') }}" autoplay loop muted playsinline></video>
+    </div>
+    <div class="home-card-body">
+      <div class="home-card-title text-center">Find Influencer</div>
+    </div>
+  </a>
+</div>
+
+<!-- Quick Stats -->
+<div class="home-stats-row">
+  <div class="home-stat-item">
+    <div class="home-stat-value">3</div>
+    <div class="home-stat-label">AI Phases</div>
+  </div>
+  <div class="home-stat-item">
+    <div class="home-stat-value">15s</div>
+    <div class="home-stat-label">Video Ads</div>
+  </div>
+  <div class="home-stat-item">
+    <div class="home-stat-value">12</div>
+    <div class="home-stat-label">Languages</div>
+  </div>
+  <div class="home-stat-item">
+    <div class="home-stat-value">&lt;5min</div>
+    <div class="home-stat-label">Per Video</div>
+  </div>
+</div>
+
+<!-- NexBot Widget -->
+{% include "partials/nexbot.html" ignore missing %}
+{% endblock %}

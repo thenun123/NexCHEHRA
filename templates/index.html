@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXCHEHRA — Give Your Brand a New Face</title>
+  <meta name="description" content="NEXCHEHRA uses advanced AI to generate stunning influencer videos for your brand. Transform your marketing with AI-powered content creation.">
+  <link rel="stylesheet" href="{{ static_url('css/styles.css') }}">
+  <link rel="stylesheet" href="{{ static_url('css/landing.css') }}">
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+  <nav class="landing-nav" id="landingNav">
+    <a href="/" class="landing-nav-brand">
+      <img src="{{ static_url('assets/logo.png') }}" alt="Nexchehra Logo" class="landing-nav-logo">
+      <div class="landing-nav-brand-text">
+        <span class="landing-nav-name">NEXCHEHRA</span>
+        <span class="landing-nav-tagline">Give your brand a new face</span>
+      </div>
+    </a>
+    <div class="landing-nav-links">
+      <a href="#features" class="landing-nav-link">Features</a>
+      <a href="#pipeline" class="landing-nav-link">How It Works</a>
+
+      <a href="#faq" class="landing-nav-link">FAQ</a>
+      <div class="landing-nav-cta">
+        {% if current_user.is_authenticated %}
+        <a href="/home" class="btn-nav-primary">Go to Studio →</a>
+        <a href="/logout" class="landing-nav-link" style="margin-left:1rem;">Logout</a>
+        {% else %}
+        <a href="/login" class="landing-nav-link" style="margin-right:1rem;">Log In</a>
+        <a href="/register" class="btn-nav-primary">Sign Up</a>
+        {% endif %}
+      </div>
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>AI-Powered Video Generation</span>
+      </div>
+      <h1 class="hero-title">
+        Give Your Brand
+        <span class="hero-title-gradient">a New Face</span>
+      </h1>
+      <p class="hero-desc">
+        Create stunning AI influencer videos in minutes. NEXCHEHRA combines cutting-edge AI engines to generate photo-realistic portraits and talking-head videos that transform your brand's digital presence.
+      </p>
+      <div class="hero-actions">
+        <a href="/home" class="btn-hero-primary">
+          Start Creating Now
+        </a>
+        <a href="#pipeline" class="btn-hero-secondary">
+          <span>▶</span> See How It Works
+        </a>
+      </div>
+      <div class="hero-stats-row">
+        <div class="hero-stat">
+          <span class="hero-stat-value">3</span>
+          <span class="hero-stat-label">AI Phases</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">15s</span>
+          <span class="hero-stat-label">Video Ads</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">&lt;5min</span>
+          <span class="hero-stat-label">Per Video</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-card">
+        <div class="hero-visual-glow"></div>
+        <img src="{{ static_url('assets/logo.png') }}" alt="Nexchehra AI" class="hero-visual-img">
+      </div>
+      <div class="floating-card floating-card-1">
+        <span>NexBrain™</span>
+      </div>
+      <div class="floating-card floating-card-2">
+        <span>NexVision™</span>
+      </div>
+      <div class="floating-card floating-card-3">
+        <span>NexMotion™</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ TRUSTED BY ═══════════════════ -->
+  <section class="trusted-section">
+    <div class="section-container">
+      <p class="trusted-label">Powered by Proprietary AI Technology</p>
+      <div class="trusted-logos">
+        <div class="trusted-item">NexBrain™ AI</div>
+        <div class="trusted-item">NexVision™ Engine</div>
+        <div class="trusted-item">NexMotion™ Studio</div>
+        <div class="trusted-item">Deep Learning</div>
+        <div class="trusted-item">Neural Networks</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FEATURES ═══════════════════ -->
+  <section class="features-section" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Features</span>
+        <h2 class="section-title">One prompt. <span class="gradient-text">Endless possibilities.</span></h2>
+        <p class="section-desc">From a simple text description to a finished AI video — our pipeline handles the complexity so you can focus on creativity.</p>
+      </div>
+
+      <!-- Horizontal Slide Carousel -->
+      <div class="slides-wrapper">
+        <button class="slide-nav slide-nav-prev" id="slidesPrev" aria-label="Previous">‹</button>
+        <div class="slides-track" id="slidesTrack">
+
+          <!-- Slide 1: Brain -->
+          <div class="slide-card" data-theme="brain">
+            <div class="slide-visual">
+              <div class="bento-visual-placeholder brain-visual">
+                <div class="brain-orb"></div>
+                <div class="brain-ring ring-1"></div>
+                <div class="brain-ring ring-2"></div>
+                <div class="brain-ring ring-3"></div>
+                <div class="brain-prompt-line line-1"><span>describe a lifestyle vlogger…</span></div>
+                <div class="brain-prompt-line line-2"><span>→ image prompt, motion, script</span></div>
+              </div>
+            </div>
+            <div class="slide-content">
+              <div class="bento-icon-row">
+                <span class="bento-engine-label" style="color: var(--accent-cyan); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">NexBrain™ Engine</span>
+              </div>
+              <h3 class="bento-title">Describe it. We'll handle the rest.</h3>
+              <p class="bento-desc">Just type what you imagine — our AI engine crafts the perfect image prompt, motion direction, and ad script automatically. Zero prompt engineering required.</p>
+              <div class="bento-tags">
+                <span class="bento-tag">Smart LLM</span>
+                <span class="bento-tag">Auto Script</span>
+                <span class="bento-tag">Shot Detection</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Portrait -->
+          <div class="slide-card" data-theme="portrait">
+            <div class="slide-visual">
+              <div class="bento-visual-placeholder portrait-visual">
+                <div class="portrait-frame">
+                  <div class="portrait-silhouette"></div>
+                  <div class="portrait-glow"></div>
+                </div>
+                <div class="portrait-badge-float">✓ Face Preserved</div>
+              </div>
+            </div>
+            <div class="slide-content">
+              <div class="bento-icon-row">
+                <span class="bento-engine-label" style="color: rgba(168, 85, 247, 0.9); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Portrait Generation</span>
+              </div>
+              <h3 class="bento-title">Portraits that look real</h3>
+              <p class="bento-desc">Generate studio-quality portraits with your face identity preserved. Custom outfits, scenes, and styling — all photo-realistic.</p>
+            </div>
+          </div>
+
+          <!-- Slide 3: Video -->
+          <div class="slide-card" data-theme="video">
+            <div class="slide-visual">
+              <div class="bento-visual-placeholder video-visual">
+                <div class="video-play-ring">
+                  <span>▶</span>
+                </div>
+                <div class="video-wave wave-1"></div>
+                <div class="video-wave wave-2"></div>
+                <div class="video-wave wave-3"></div>
+              </div>
+            </div>
+            <div class="slide-content">
+              <div class="bento-icon-row">
+                <span class="bento-engine-label" style="color: rgba(74, 222, 128, 0.9); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Video Synthesis</span>
+              </div>
+              <h3 class="bento-title">Still photos, now talking</h3>
+              <p class="bento-desc">Your portrait comes alive — natural lip-sync, subtle gestures, and realistic expressions. It looks like it was filmed, not generated.</p>
+            </div>
+          </div>
+
+          <!-- Slide 4: Product -->
+          <div class="slide-card" data-theme="product">
+            <div class="slide-visual">
+              <div class="bento-visual-placeholder product-visual">
+                <div class="product-box">
+                  <div class="product-box-inner"></div>
+                </div>
+                <div class="product-arrow">→</div>
+                <div class="product-scene">
+                  <div class="product-scene-inner"></div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-content">
+              <div class="bento-icon-row">
+                <span class="bento-engine-label" style="color: rgba(245, 158, 11, 0.9); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Product Compositing</span>
+              </div>
+              <h3 class="bento-title">Your product, in the scene</h3>
+              <p class="bento-desc">Upload any product photo. AI naturally composites it into the shot — held, worn, or placed beside your influencer.</p>
+            </div>
+          </div>
+
+          <!-- Slide 5: Shot Type -->
+          <div class="slide-card" data-theme="shot">
+            <div class="slide-visual">
+              <div class="bento-visual-placeholder shot-visual">
+                <div class="shot-frame-group">
+                  <div class="shot-frame sf-head"><span>Head</span></div>
+                  <div class="shot-frame sf-half active"><span>Half</span></div>
+                  <div class="shot-frame sf-full"><span>Full</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-content">
+              <div class="bento-icon-row">
+                <span class="bento-engine-label" style="color: var(--accent-cyan); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Smart Framing</span>
+              </div>
+              <h3 class="bento-title">Frame it your way</h3>
+              <p class="bento-desc">Headshot, half-body, or full-body — pick your composition or let AI auto-detect the best framing for your scene.</p>
+            </div>
+          </div>
+
+          <!-- Slide 6: Audio -->
+          <div class="slide-card" data-theme="audio">
+            <div class="slide-visual">
+              <div class="bento-visual-placeholder audio-visual">
+                <div class="audio-bars">
+                  <span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span>
+                  <span style="--i:4"></span><span style="--i:5"></span><span style="--i:6"></span>
+                  <span style="--i:7"></span><span style="--i:8"></span><span style="--i:9"></span>
+                  <span style="--i:10"></span><span style="--i:11"></span><span style="--i:12"></span>
+                </div>
+                <div class="audio-lang-pills">
+                  <span class="lang-pill active">EN</span>
+                  <span class="lang-pill">中文</span>
+                  <span class="lang-pill">ES</span>
+                  <span class="lang-pill">FR</span>
+                </div>
+              </div>
+            </div>
+            <div class="slide-content">
+              <div class="bento-icon-row">
+                <span class="bento-engine-label" style="color: rgba(168, 85, 247, 0.9); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Multilingual Audio</span>
+              </div>
+              <h3 class="bento-title">Speak every language</h3>
+              <p class="bento-desc">Native-quality audio in 12+ languages. Your AI influencer speaks naturally — no dubbing, no awkward translations.</p>
+            </div>
+          </div>
+
+        </div>
+        <button class="slide-nav slide-nav-next" id="slidesNext" aria-label="Next">›</button>
+      </div>
+
+      <!-- Slide Dots -->
+      <div class="slides-dots" id="slidesDots"></div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════ HOW IT WORKS (PIPELINE) ═══════════════════ -->
+  <section class="pipeline-section" id="pipeline">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">How It Works</span>
+        <h2 class="section-title">Three Powerful <span class="gradient-text">AI Phases</span></h2>
+        <p class="section-desc">From concept to final render in minutes. Effortless video creation.</p>
+      </div>
+      
+      <div class="slides-wrapper pipeline-carousel">
+        <button class="slide-nav slide-nav-prev" aria-label="Previous">‹</button>
+        <div class="slides-track">
+
+          <!-- Step 1 -->
+          <div class="slide-card pipeline-card-new">
+            <div class="slide-visual pipeline-visual">
+              <div class="pipeline-step-glow">01</div>
+              <div class="pipeline-abstract-ui">
+                <div class="ui-bar" style="width: 70%"></div>
+                <div class="ui-bar" style="width: 40%"></div>
+                <div class="ui-button">Generate Prompt</div>
+              </div>
+            </div>
+            <div class="slide-content pipeline-content">
+              <h3 class="bento-title">Write your concept</h3>
+              <p class="bento-desc">Just describe what you need. Our AI automatically crafts the perfect image prompt and writes an engaging 15-second ad script.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="slide-card pipeline-card-new">
+            <div class="slide-visual pipeline-visual">
+              <div class="pipeline-step-glow">02</div>
+              <div class="pipeline-abstract-ui">
+                <div class="ui-image-placeholder">
+                  <div class="ui-spinner"></div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-content pipeline-content">
+              <h3 class="bento-title">Generate your scene</h3>
+              <p class="bento-desc">Review your photo-realistic portrait and scene composition. Upload your product, and the AI places it perfectly into the shot.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="slide-card pipeline-card-new">
+            <div class="slide-visual pipeline-visual">
+              <div class="pipeline-step-glow">03</div>
+              <div class="pipeline-abstract-ui">
+                <div class="ui-timeline">
+                  <div class="ui-timeline-track"></div>
+                  <div class="ui-timeline-play">▶</div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-content pipeline-content">
+              <h3 class="bento-title">Animate & Export</h3>
+              <p class="bento-desc">Hit render. Watch your static portrait come alive with natural lip-sync, subtle motions, and native audio in 12+ languages.</p>
+            </div>
+          </div>
+
+        </div>
+        <button class="slide-nav slide-nav-next" aria-label="Next">›</button>
+      </div>
+      <div class="slides-dots"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ USE CASES (SHOWCASE) ═══════════════════ -->
+  <section class="showcase-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Use Cases</span>
+        <h2 class="section-title">Built for <span class="gradient-text">Every Industry</span></h2>
+        <p class="section-desc">See how professionals are cutting costs and scaling production.</p>
+      </div>
+
+      <div class="slides-wrapper showcase-carousel">
+        <button class="slide-nav slide-nav-prev" aria-label="Previous">‹</button>
+        <div class="slides-track">
+
+          <!-- Case 1 -->
+          <div class="slide-card showcase-card-new" style="background-image: url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop');">
+            <div class="showcase-gradient-overlay"></div>
+            <div class="showcase-content">
+              <h3 class="showcase-title">Social Media Managers</h3>
+              <p class="showcase-desc">Scale your TikTok and Reels output 10x without the crushing talent and studio costs.</p>
+            </div>
+          </div>
+
+          <!-- Case 2 -->
+          <div class="slide-card showcase-card-new" style="background-image: url('https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=600&auto=format&fit=crop');">
+            <div class="showcase-gradient-overlay"></div>
+            <div class="showcase-content">
+              <h3 class="showcase-title">E-Commerce Brands</h3>
+              <p class="showcase-desc">Drive massive conversions with lifelike product review videos that feel incredibly authentic.</p>
+            </div>
+          </div>
+
+          <!-- Case 3 -->
+          <div class="slide-card showcase-card-new" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop');">
+            <div class="showcase-gradient-overlay"></div>
+            <div class="showcase-content">
+              <h3 class="showcase-title">Educators & Creators</h3>
+              <p class="showcase-desc">Deliver consistent, engaging online courses translated instantly into 12 languages.</p>
+            </div>
+          </div>
+
+          <!-- Case 4 -->
+          <div class="slide-card showcase-card-new" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop');">
+            <div class="showcase-gradient-overlay"></div>
+            <div class="showcase-content">
+              <h3 class="showcase-title">Corporate Comms</h3>
+              <p class="showcase-desc">Engage global teams instantly with branded, professional virtual presenters for all internal updates.</p>
+            </div>
+          </div>
+          
+          <!-- Case 5 -->
+          <div class="slide-card showcase-card-new" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop');">
+            <div class="showcase-gradient-overlay"></div>
+            <div class="showcase-content">
+              <h3 class="showcase-title">Healthcare Providers</h3>
+              <p class="showcase-desc">Build trust and educate patients safely with professional, multilingual AI avatars.</p>
+            </div>
+          </div>
+
+          <!-- Case 6 -->
+          <div class="slide-card showcase-card-new" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600&auto=format&fit=crop');">
+            <div class="showcase-gradient-overlay"></div>
+            <div class="showcase-content">
+              <h3 class="showcase-title">Video Editors</h3>
+              <p class="showcase-desc">Cut your post-production and reshoot time in half by generating b-roll and pickups instantly.</p>
+            </div>
+          </div>
+
+        </div>
+        <button class="slide-nav slide-nav-next" aria-label="Next">›</button>
+      </div>
+      <div class="slides-dots"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ STATS ═══════════════════ -->
+  <section class="stats-section">
+    <div class="section-container">
+      <div class="stats-banner">
+        <div class="stat-block">
+          <div class="stat-block-value">3</div>
+          <div class="stat-block-label">AI Engines</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-block-value">1080p</div>
+          <div class="stat-block-label">Video Quality</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-block-value">12</div>
+          <div class="stat-block-label">Languages</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-block-value">15s</div>
+          <div class="stat-block-label">Ad Format</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════ FAQ ═══════════════════ -->
+  <section class="faq-section" id="faq">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">FAQ</span>
+        <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>What is NEXCHEHRA?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            NEXCHEHRA is an AI-powered platform that generates realistic influencer video ads from text descriptions. It uses three proprietary AI engines — NexBrain™ for intelligent prompt analysis, NexVision™ for portrait generation, and NexMotion™ for video creation — to produce professional-quality 15-second ad content.
+          </div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>How long does video generation take?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Typical generation takes 5–10 minutes. The AI pipeline processes your request through three phases: prompt analysis (~2s), portrait generation (~30-60s), and video creation (~5-8 minutes). You can track progress in real-time through the generation log.
+          </div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Do I need to write a script?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            No! NexBrain™ can auto-generate scripts for you using the proven Hook-Demo-Close ad formula. Simply describe your scene and the AI handles everything — including writing a natural, engaging 15-second script tailored to your product.
+          </div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Can I add my own product?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes! Toggle on "Product Placement" to upload your product image. Choose from 5 placement styles (in-hand, beside, on table, background, wearing) and NexVision™ will naturally composite the product into the portrait at realistic proportions.
+          </div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Can I use my own face/person?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Absolutely! Select "Custom" in the influencer gallery and upload your own reference photo. NexVision™ preserves the exact face identity while applying the described styling, outfit, and scene changes.
+          </div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Can I use the videos commercially?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes! All videos generated through NEXCHEHRA are yours to use commercially. You have full rights to use, modify, and distribute the generated content for your brand, marketing campaigns, or social media channels.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CTA ═══════════════════ -->
+  <section class="cta-section">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+      <h2 class="cta-title">Design with Nexchehra</h2>
+      <p class="cta-desc">Create with momentum. Bring your vision to life.</p>
+      <div class="cta-actions">
+        <a href="/home" class="btn-cta-primary">
+          Get Started for Free
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="landing-footer">
+    <div class="section-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-row">
+            <img src="{{ static_url('assets/logo.png') }}" alt="Nexchehra" class="footer-logo">
+            <div>
+              <div class="footer-brand-name">NEXCHEHRA</div>
+              <div class="footer-brand-tagline">Give your brand a new face</div>
+            </div>
+          </div>
+          <p class="footer-brand-desc">AI-powered influencer video generation platform. Transform your marketing with cutting-edge AI technology.</p>
+        </div>
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Product</h4>
+          <a href="#features">Features</a>
+          <a href="#pipeline">How It Works</a>
+
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Platform</h4>
+          <a href="/home">Dashboard</a>
+          <a href="/history">History</a>
+        </div>
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Technology</h4>
+          <a href="#">NexBrain™ AI</a>
+          <a href="#">NexVision™ Engine</a>
+          <a href="#">NexMotion™ Studio</a>
+          <a href="#">Face Preservation</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NEXCHEHRA. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.querySelector('.landing-nav-links');
+    mobileBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      mobileBtn.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.landing-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileBtn.classList.remove('active');
+      });
+    });
+
+    // FAQ toggles
+    function toggleFaq(el) { el.classList.toggle('open'); }
+
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('landingNav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.slide-card, .pipeline-card, .showcase-card, .pricing-card, .faq-item, .stat-block').forEach(el => {
+      el.classList.add('animate-target');
+      observer.observe(el);
+    });
+
+    // ═══════ Universal Slide Carousels ═══════
+    document.querySelectorAll('.slides-wrapper').forEach(wrapper => {
+      const track = wrapper.querySelector('.slides-track');
+      const prevBtn = wrapper.querySelector('.slide-nav-prev');
+      const nextBtn = wrapper.querySelector('.slide-nav-next');
+      const dotsContainer = wrapper.nextElementSibling; // The slides-dots div follows the wrapper
+      
+      if (!track) return;
+      
+      const cards = track.querySelectorAll('.slide-card');
+      if (cards.length === 0) return;
+      
+      const total = cards.length;
+      let currentIndex = 0;
+
+      // Build dots
+      if (dotsContainer && dotsContainer.classList.contains('slides-dots')) {
+        cards.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+          dot.addEventListener('click', () => scrollToSlide(i));
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      function updateDots(idx) {
+        if (!dotsContainer) return;
+        dotsContainer.querySelectorAll('.slide-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === idx);
+        });
+      }
+
+      function updateNavButtons(idx) {
+        if (prevBtn) {
+          prevBtn.style.opacity = idx === 0 ? '0.3' : '1';
+          prevBtn.style.pointerEvents = idx === 0 ? 'none' : 'auto';
+        }
+        if (nextBtn) {
+          nextBtn.style.opacity = idx >= total - 1 ? '0.3' : '1';
+          nextBtn.style.pointerEvents = idx >= total - 1 ? 'none' : 'auto';
+        }
+      }
+
+      function scrollToSlide(idx) {
+        currentIndex = Math.max(0, Math.min(idx, total - 1));
+        const card = cards[currentIndex];
+        const trackRect = track.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
+        const scrollLeft = card.offsetLeft - (trackRect.width / 2) + (cardRect.width / 2);
+        track.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+        updateDots(currentIndex);
+        updateNavButtons(currentIndex);
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', () => scrollToSlide(currentIndex - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => scrollToSlide(currentIndex + 1));
+
+      // Detect current slide on scroll
+      let scrollTimer;
+      track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          const center = track.scrollLeft + track.offsetWidth / 2;
+          let closest = 0;
+          let minDist = Infinity;
+          cards.forEach((card, i) => {
+            const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+            const dist = Math.abs(center - cardCenter);
+            if (dist < minDist) { minDist = dist; closest = i; }
+          });
+          currentIndex = closest;
+          updateDots(currentIndex);
+          updateNavButtons(currentIndex);
+        }, 80);
+      });
+
+      updateNavButtons(0);
+    });
+  </script>
+</body>
+</html>

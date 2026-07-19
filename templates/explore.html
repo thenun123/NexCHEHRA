@@ -1,0 +1,62 @@
+{% extends "base_app.html" %}
+
+{% block title %}Explore — NEXCHEHRA{% endblock %}
+{% block nav_explore %}active{% endblock %}
+
+{% block breadcrumb %}
+<span class="breadcrumb-current">Explore</span>
+{% endblock %}
+
+{% block content %}
+<div class="explore-header">
+  <h1 class="explore-title">Explore Ideas</h1>
+  <p class="explore-desc">Get inspired by curated influencer video concepts and ad ideas for your brand.</p>
+</div>
+
+
+<!-- Ideas Grid -->
+<div class="explore-grid" id="exploreGrid"></div>
+
+<script>
+  const outputVideos = [
+    '{{ static_url('outputs/1.mp4') }}',
+    '{{ static_url('outputs/2.mp4') }}',
+    '{{ static_url('outputs/3.mp4') }}',
+    '{{ static_url('outputs/4.mp4') }}',
+    '{{ static_url('outputs/5.mp4') }}',
+    '{{ static_url('outputs/6.mp4') }}'
+  ];
+
+  function renderExploreGrid() {
+    const grid = document.getElementById('exploreGrid');
+
+    grid.innerHTML = outputVideos.map((videoSrc) => {
+      return `
+    <div class="explore-card" onclick="useExploreIdea('Use this style', 'Style Variation')">
+      <div class="explore-card-visual">
+        <video class="explore-video" src="${videoSrc}" autoplay loop muted playsinline></video>
+      </div>
+    </div>
+  `}).join('');
+
+    // Limit playback to first 10 seconds
+    document.querySelectorAll('.explore-video').forEach(video => {
+      video.addEventListener('timeupdate', function () {
+        if (this.currentTime >= 10) {
+          this.currentTime = 0; // Loop back
+        }
+      });
+    });
+  }
+
+  function useExploreIdea(prompt, title) {
+    // Store in session and redirect to video page
+    sessionStorage.setItem('explore_prompt', decodeURIComponent(prompt));
+    sessionStorage.setItem('explore_title', decodeURIComponent(title));
+    window.location.href = '/video';
+  }
+
+  // Initial render
+  renderExploreGrid();
+</script>
+{% endblock %}

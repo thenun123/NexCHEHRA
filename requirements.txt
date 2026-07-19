@@ -1,0 +1,15 @@
+flask
+flask-cors
+python-dotenv
+requests
+pillow
+fal-client
+
+Flask-SQLAlchemy
+Flask-Login
+langdetect
+
+# Render + Supabase + ImageKit
+gunicorn
+psycopg2-binary
+imagekitio

@@ -1,0 +1,32 @@
+{% extends "base_app.html" %}
+
+{% block title %}Manage Account - NEXCHEHRA{% endblock %}
+
+{% block breadcrumb %}
+<span class="breadcrumb-item text-muted">Dashboard</span>
+<span class="breadcrumb-separator">/</span>
+<span class="breadcrumb-item">Manage Account</span>
+{% endblock %}
+
+{% block content %}
+<div class="content-container" style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
+  <h1 style="color: white; margin-bottom: 24px; font-weight: 700;">Account Settings</h1>
+  
+  <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px;">
+    <h2 style="color: white; font-size: 1.2rem; margin-bottom: 16px;">Profile Information</h2>
+    <div style="margin-bottom: 24px;">
+      <label style="display: block; color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 8px;">Username</label>
+      <input type="text" value="{{ current_user.username }}" disabled style="width: 100%; padding: 12px 16px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white;">
+    </div>
+    
+    <h2 style="color: white; font-size: 1.2rem; margin-bottom: 16px;">Subscription Plan</h2>
+    <div style="background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(37, 99, 235, 0.3); border-radius: 12px; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <div style="color: white; font-weight: 600; font-size: 1.1rem; margin-bottom: 4px;">Free Plan</div>
+        <div style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">25 Credits remaining</div>
+      </div>
+      <button style="background: #2563eb; color: white; border: none; padding: 8px 20px; border-radius: 20px; font-weight: 600; cursor: pointer;">Upgrade to Pro</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
