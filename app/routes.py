@@ -89,6 +89,15 @@ def register_routes(app: Flask):
     def get_logs(session_id):
         """Server-Sent Events endpoint — streams real-time logs to frontend."""
         def stream():
+            # The frontend opens this SSE connection at the same time it fires the
+            # POST that calls create_session() — there's no guaranteed ordering
+            # between the two requests. Wait briefly for the session to show up
+            # instead of failing immediately on a benign race.
+            wait_elapsed = 0.0
+            while session_id not in log_queues and wait_elapsed < 5.0:
+                time.sleep(0.1)
+                wait_elapsed += 0.1
+
             if session_id not in log_queues:
                 yield f"data: {json.dumps({'type': 'error', 'message': 'Invalid session'})}\n\n"
                 return
