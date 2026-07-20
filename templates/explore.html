@@ -17,14 +17,85 @@
 <!-- Ideas Grid -->
 <div class="explore-grid" id="exploreGrid"></div>
 
+<!-- Video lightbox -->
+<div id="videoModalOverlay" class="video-modal-overlay" onclick="if(event.target===this) closeVideoModal()">
+  <div class="video-modal-box">
+    <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Close">&times;</button>
+    <video id="videoModalPlayer" class="video-modal-player" controls autoplay playsinline></video>
+    <div class="video-modal-actions">
+      <button class="video-modal-use-btn" onclick="useExploreIdea('Use this style', 'Style Variation')">Use this
+        style</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .video-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-modal-overlay.open {
+    display: flex;
+  }
+
+  .video-modal-box {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .video-modal-player {
+    max-width: 90vw;
+    max-height: 78vh;
+    border-radius: 12px;
+    background: #000;
+  }
+
+  .video-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .video-modal-actions {
+    display: flex;
+  }
+
+  .video-modal-use-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background: #fff;
+    color: #111;
+    font-weight: 600;
+    cursor: pointer;
+  }
+</style>
+
 <script>
   const outputVideos = [
-    '{{ static_url('outputs/1.mp4') }}',
-    '{{ static_url('outputs/2.mp4') }}',
-    '{{ static_url('outputs/3.mp4') }}',
-    '{{ static_url('outputs/4.mp4') }}',
-    '{{ static_url('outputs/5.mp4') }}',
-    '{{ static_url('outputs/6.mp4') }}'
+    '{{ static_url('outputs / 1.mp4') }}',
+    '{{ static_url('outputs / 2.mp4') }}',
+    '{{ static_url('outputs / 3.mp4') }}',
+    '{{ static_url('outputs / 4.mp4') }}',
+    '{{ static_url('outputs / 5.mp4') }}',
+    '{{ static_url('outputs / 6.mp4') }}'
   ];
 
   function renderExploreGrid() {
@@ -32,7 +103,7 @@
 
     grid.innerHTML = outputVideos.map((videoSrc) => {
       return `
-    <div class="explore-card" onclick="useExploreIdea('Use this style', 'Style Variation')">
+    <div class="explore-card" onclick="openVideoModal('${videoSrc}')">
       <div class="explore-card-visual">
         <video class="explore-video" src="${videoSrc}" autoplay loop muted playsinline></video>
       </div>
@@ -47,6 +118,24 @@
         }
       });
     });
+  }
+
+  function openVideoModal(src) {
+    const overlay = document.getElementById('videoModalOverlay');
+    const player = document.getElementById('videoModalPlayer');
+    player.src = src;
+    player.muted = false;
+    overlay.classList.add('open');
+    player.play().catch(() => { });
+  }
+
+  function closeVideoModal() {
+    const overlay = document.getElementById('videoModalOverlay');
+    const player = document.getElementById('videoModalPlayer');
+    player.pause();
+    player.removeAttribute('src');
+    player.load();
+    overlay.classList.remove('open');
   }
 
   function useExploreIdea(prompt, title) {
