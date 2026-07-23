@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up — NEXCHEHRA</title>
-  <meta name="description" content="Create your NEXCHEHRA account and start generating AI influencer videos for your brand.">
+  <meta name="description"
+    content="Create your NEXCHEHRA account and start generating AI influencer videos for your brand.">
   <link rel="stylesheet" href="{{ static_url('css/styles.css') }}">
   <style>
     /* ===== AUTH PAGE LAYOUT ===== */
@@ -185,15 +187,56 @@
       transition: var(--transition-fast);
     }
 
-    .password-strength-bar.active.weak { background: var(--accent-red); }
-    .password-strength-bar.active.medium { background: var(--accent-amber); }
-    .password-strength-bar.active.strong { background: var(--accent-green); }
+    .password-strength-bar.active.weak {
+      background: var(--accent-red);
+    }
+
+    .password-strength-bar.active.medium {
+      background: var(--accent-amber);
+    }
+
+    .password-strength-bar.active.strong {
+      background: var(--accent-green);
+    }
 
     .password-strength-text {
       font-size: 0.72rem;
       color: var(--text-muted);
       margin-top: 4px;
       text-align: right;
+    }
+
+    /* ===== PASSWORD REQUIREMENTS ===== */
+    .password-requirements {
+      list-style: none;
+      margin: 10px 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .password-requirements li {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .password-requirements li::before {
+      content: '○';
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+    }
+
+    .password-requirements li.met {
+      color: var(--accent-green);
+    }
+
+    .password-requirements li.met::before {
+      content: '●';
+      color: var(--accent-green);
     }
 
     /* ===== BUTTON ===== */
@@ -218,8 +261,15 @@
     }
 
     @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
     }
 
     .auth-submit:hover {
@@ -320,12 +370,15 @@
     }
   </style>
 </head>
+
 <body>
   <div class="bg-mesh"></div>
   <div class="grid-overlay"></div>
 
   <a href="/" class="auth-back">
-    <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <svg viewBox="0 0 24 24">
+      <path d="M19 12H5M12 19l-7-7 7-7" />
+    </svg>
     Back to Home
   </a>
 
@@ -349,17 +402,20 @@
       <form class="auth-form" method="POST" action="/register" id="registerForm">
         <div class="auth-field">
           <label class="auth-field-label" for="auth-username">Username</label>
-          <input type="text" name="username" id="auth-username" class="auth-input" placeholder="Choose a username" required autofocus>
+          <input type="text" name="username" id="auth-username" class="auth-input" placeholder="Choose a username"
+            required autofocus>
         </div>
 
         <div class="auth-field">
           <label class="auth-field-label" for="auth-email">Email Address</label>
-          <input type="email" name="email" id="auth-email" class="auth-input" placeholder="Enter your email address" required>
+          <input type="email" name="email" id="auth-email" class="auth-input" placeholder="Enter your email address"
+            required>
         </div>
 
         <div class="auth-field">
           <label class="auth-field-label" for="auth-password">Password</label>
-          <input type="password" name="password" id="auth-password" class="auth-input" placeholder="Create a password" required oninput="checkStrength(this.value)">
+          <input type="password" name="password" id="auth-password" class="auth-input" placeholder="Create a password"
+            required oninput="checkStrength(this.value)">
           <div class="password-strength">
             <div class="password-strength-bar" id="str1"></div>
             <div class="password-strength-bar" id="str2"></div>
@@ -367,14 +423,22 @@
             <div class="password-strength-bar" id="str4"></div>
           </div>
           <div class="password-strength-text" id="strText"></div>
+          <ul class="password-requirements" id="pwRequirements">
+            <li id="req-len">At least 8 characters</li>
+            <li id="req-upper">One uppercase letter</li>
+            <li id="req-lower">One lowercase letter</li>
+            <li id="req-num">One number</li>
+            <li id="req-special">One special character (!@#$%...)</li>
+          </ul>
         </div>
 
         <div class="auth-field">
           <label class="auth-field-label" for="auth-confirm">Confirm Password</label>
-          <input type="password" name="confirm_password" id="auth-confirm" class="auth-input" placeholder="Confirm your password" required>
+          <input type="password" name="confirm_password" id="auth-confirm" class="auth-input"
+            placeholder="Confirm your password" required>
         </div>
 
-        <button type="submit" class="auth-submit" id="registerSubmitBtn">Create Account →</button>
+        <button type="submit" class="auth-submit" id="registerSubmitBtn" disabled>Create Account →</button>
       </form>
 
       <!-- Perks -->
@@ -406,14 +470,23 @@
       ];
       const textEl = document.getElementById('strText');
 
-      let score = 0;
-      if (pw.length >= 4) score++;
-      if (pw.length >= 8) score++;
-      if (/[A-Z]/.test(pw) && /[a-z]/.test(pw)) score++;
-      if (/[0-9]/.test(pw) || /[^A-Za-z0-9]/.test(pw)) score++;
+      const checks = {
+        'req-len': pw.length >= 8,
+        'req-upper': /[A-Z]/.test(pw),
+        'req-lower': /[a-z]/.test(pw),
+        'req-num': /[0-9]/.test(pw),
+        'req-special': /[^A-Za-z0-9]/.test(pw),
+      };
 
-      const labels = ['', 'Weak', 'Fair', 'Good', 'Strong'];
-      const classes = ['', 'weak', 'medium', 'medium', 'strong'];
+      Object.keys(checks).forEach((id) => {
+        document.getElementById(id).classList.toggle('met', checks[id]);
+      });
+
+      const allMet = Object.values(checks).every(Boolean);
+      const score = Object.values(checks).filter(Boolean).length;
+
+      const labels = ['', 'Weak', 'Fair', 'Good', 'Good', 'Strong'];
+      const classes = ['', 'weak', 'medium', 'medium', 'medium', 'strong'];
 
       bars.forEach((bar, i) => {
         bar.classList.remove('active', 'weak', 'medium', 'strong');
@@ -423,8 +496,24 @@
       });
 
       textEl.textContent = pw.length > 0 ? labels[score] : '';
-      textEl.style.color = score <= 1 ? 'var(--accent-red)' : score <= 2 ? 'var(--accent-amber)' : 'var(--accent-green)';
+      textEl.style.color = score <= 2 ? 'var(--accent-red)' : score <= 3 ? 'var(--accent-amber)' : 'var(--accent-green)';
+
+      // Submit is only enabled once every requirement is met AND the confirm field matches
+      updateSubmitState(allMet);
     }
+
+    function updateSubmitState(passwordOk) {
+      const confirm = document.getElementById('auth-confirm').value;
+      const password = document.getElementById('auth-password').value;
+      const btn = document.getElementById('registerSubmitBtn');
+      const confirmOk = confirm.length === 0 || confirm === password;
+      btn.disabled = !(passwordOk && confirmOk);
+    }
+
+    document.getElementById('auth-confirm').addEventListener('input', () => {
+      checkStrength(document.getElementById('auth-password').value);
+    });
   </script>
 </body>
+
 </html>

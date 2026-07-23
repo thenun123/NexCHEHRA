@@ -30,20 +30,26 @@
       <div class="stat-card" id="phaseCard0" style="text-align: center;">
         <div style="font-size: 2.5rem; margin-bottom: 8px;">🧠</div>
         <div style="font-weight: 700; font-size: 0.85rem; color: var(--accent-cyan);">PHASE 0: BRAIN</div>
-        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">NexBrain™ AI<br>Script & Prompt Engine</div>
-        <div class="phase-status" id="phaseStatus0" style="margin-top: 8px; font-size: 0.75rem; font-weight: 600; color: var(--text-muted);">Waiting</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">NexBrain™ AI<br>Script & Prompt
+          Engine</div>
+        <div class="phase-status" id="phaseStatus0"
+          style="margin-top: 8px; font-size: 0.75rem; font-weight: 600; color: var(--text-muted);">Waiting</div>
       </div>
       <div class="stat-card" id="phaseCard1" style="text-align: center;">
         <div style="font-size: 2.5rem; margin-bottom: 8px;">🎨</div>
         <div style="font-weight: 700; font-size: 0.85rem; color: var(--accent-magenta);">PHASE 1: VISION</div>
-        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">NexVision™ Engine<br>Portrait Generation</div>
-        <div class="phase-status" id="phaseStatus1" style="margin-top: 8px; font-size: 0.75rem; font-weight: 600; color: var(--text-muted);">Waiting</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">NexVision™ Engine<br>Portrait
+          Generation</div>
+        <div class="phase-status" id="phaseStatus1"
+          style="margin-top: 8px; font-size: 0.75rem; font-weight: 600; color: var(--text-muted);">Waiting</div>
       </div>
       <div class="stat-card" id="phaseCard2" style="text-align: center;">
         <div style="font-size: 2.5rem; margin-bottom: 8px;">🎬</div>
         <div style="font-weight: 700; font-size: 0.85rem; color: var(--accent-green);">PHASE 2: VIDEO</div>
-        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">NexMotion™ Studio<br>Video + Audio</div>
-        <div class="phase-status" id="phaseStatus2" style="margin-top: 8px; font-size: 0.75rem; font-weight: 600; color: var(--text-muted);">Waiting</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">NexMotion™ Studio<br>Video + Audio
+        </div>
+        <div class="phase-status" id="phaseStatus2"
+          style="margin-top: 8px; font-size: 0.75rem; font-weight: 600; color: var(--text-muted);">Waiting</div>
       </div>
     </div>
   </div>
@@ -115,13 +121,18 @@
 
       <div class="form-group">
         <label class="form-label" for="description">Scene Description / Outfit</label>
-        <textarea class="form-textarea" id="description" placeholder="A lifestyle vlogger in a white shirt, sitting on a sofa, warm lighting, relaxed and friendly..."></textarea>
+        <textarea class="form-textarea" id="description"
+          placeholder="A lifestyle vlogger in a white shirt, sitting on a sofa, warm lighting, relaxed and friendly..."></textarea>
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="script">Video Script <span style="color: var(--text-muted);">(optional — AI will write one)</span></label>
-        <textarea class="form-textarea" id="script" placeholder="Hi everyone! I'm so excited to share this with you today..." style="min-height: 70px;" oninput="updateWordCount()"></textarea>
-        <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: .8rem; color: var(--text-muted);">
+        <label class="form-label" for="script">Video Script <span style="color: var(--text-muted);">(optional — AI will
+            write one)</span></label>
+        <textarea class="form-textarea" id="script"
+          placeholder="Hi everyone! I'm so excited to share this with you today..." style="min-height: 70px;"
+          oninput="updateWordCount()"></textarea>
+        <div
+          style="display: flex; justify-content: space-between; margin-top: 8px; font-size: .8rem; color: var(--text-muted);">
           <span>Word count: <span id="wordCount">0</span> / 52</span>
           <span id="wordCountStatus"></span>
         </div>
@@ -176,7 +187,8 @@
       <!-- Product Section (hidden) -->
       <div class="product-section" id="productSection">
         <div class="product-upload" id="productUploadArea">
-          <input type="file" id="productFileInput" accept="image/jpeg,image/png,image/webp" onchange="handleProductUpload(event)">
+          <input type="file" id="productFileInput" accept="image/jpeg,image/png,image/webp"
+            onchange="handleProductUpload(event)">
           <div class="product-upload-icon"></div>
           <div class="product-upload-text">
             <strong>Click or drag</strong> to upload product image<br>
@@ -193,11 +205,13 @@
         </div>
         <div class="form-group">
           <label class="form-label">Product Name</label>
-          <input class="form-input" type="text" id="productName" placeholder="e.g. Vitamin C Face Wash, Wireless Headphones...">
+          <input class="form-input" type="text" id="productName"
+            placeholder="e.g. Vitamin C Face Wash, Wireless Headphones...">
         </div>
         <div class="form-group">
           <label class="form-label">Product Features <span style="color: var(--text-muted);">(optional)</span></label>
-          <input class="form-input" type="text" id="productFeatures" placeholder="e.g. vitamin C, natural herbs, organic ingredients...">
+          <input class="form-input" type="text" id="productFeatures"
+            placeholder="e.g. vitamin C, natural herbs, organic ingredients...">
           <div style="font-size: .72rem; color: var(--text-muted); margin-top: 4px;">
             List key features separated by commas. The AI will mention these in the video script.
           </div>
@@ -229,13 +243,80 @@
         </div>
       </div>
 
-      <div class="spinner-wrap" id="spinner0"><div class="spinner"></div><div class="spinner-text">NexBrain™ analyzing your description...</div></div>
+      <div class="consent-box" id="consentBox">
+        <label class="consent-checkbox-label">
+          <input type="checkbox" id="consentCheckbox"
+            onchange="document.getElementById('btnAnalyze').disabled = !this.checked;">
+          <span>
+            I confirm I own the rights to any face, image, or likeness I upload or reference here, and I am solely
+            responsible for the content generated and how it is used. NEXCHEHRA is not liable for any consequences
+            arising from the creation, upload, or use of this content — including use of anyone's likeness or image.
+            <a href="#" onclick="document.getElementById('consentDetails').open = true; return false;">Read more</a>
+          </span>
+        </label>
+        <details class="consent-details" id="consentDetails">
+          <summary style="display:none;"></summary>
+          <p>
+            By generating a video, you confirm that: (1) you have the legal right to use any face, product, or
+            reference image you upload; (2) you will not use this tool to create content depicting real people
+            without their explicit consent; (3) you are solely responsible for how generated content is used,
+            published, or distributed; and (4) NEXCHEHRA and its creators bear no liability for misuse, disputes,
+            or damages resulting from content you create with this tool.
+          </p>
+        </details>
+      </div>
 
-      <button class="btn btn-generate" id="btnAnalyze" onclick="startVideoGeneration()">
+      <div class="spinner-wrap" id="spinner0">
+        <div class="spinner"></div>
+        <div class="spinner-text">NexBrain™ analyzing your description...</div>
+      </div>
+
+      <button class="btn btn-generate" id="btnAnalyze" onclick="startVideoGeneration()" disabled>
         ANALYZE WITH AI
       </button>
     </div>
   </div>
+
+  <style>
+    .consent-box {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .consent-checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      line-height: 1.5;
+    }
+
+    .consent-checkbox-label input[type="checkbox"] {
+      margin-top: 3px;
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent-cyan);
+      cursor: pointer;
+    }
+
+    .consent-checkbox-label a {
+      color: var(--accent-cyan);
+      text-decoration: underline;
+    }
+
+    .consent-details p {
+      margin: 10px 0 0;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+  </style>
 
   <!-- ══════════════════════════════════════════════════ -->
   <!-- SECTION 2: GATE 1 — REVIEW PROMPTS               -->
@@ -243,7 +324,8 @@
   <div class="section" id="sectionGate1">
     <div class="gen-card">
       <div class="gen-card-title">Review & Edit — Prompts</div>
-      <p style="color: var(--text-secondary); font-size: .88rem; margin-bottom: 20px;">NexBrain™ generated these. Edit anything before generating the portrait.</p>
+      <p style="color: var(--text-secondary); font-size: .88rem; margin-bottom: 20px;">NexBrain™ generated these. Edit
+        anything before generating the portrait.</p>
 
       <div class="preview-box">
         <div class="preview-box-title">Image Prompt</div>
@@ -257,8 +339,10 @@
 
       <div class="preview-box">
         <div class="preview-box-title">Video Script</div>
-        <textarea class="form-textarea" id="gate1Script" style="min-height: 60px;" oninput="updateCostPreview('gate1')"></textarea>
-        <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: .8rem; color: var(--text-muted);">
+        <textarea class="form-textarea" id="gate1Script" style="min-height: 60px;"
+          oninput="updateCostPreview('gate1')"></textarea>
+        <div
+          style="display: flex; justify-content: space-between; margin-top: 8px; font-size: .8rem; color: var(--text-muted);">
           <span>Words: <span id="gate1WordCount">0</span> / 50 (target: 44)</span>
           <span>Duration: <span id="gate1Duration">20</span>s</span>
         </div>
@@ -281,7 +365,10 @@
         Shot type: <strong id="gate1ShotTypeVal" style="color: var(--accent-cyan);">—</strong>
       </div>
 
-      <div class="spinner-wrap" id="spinner1"><div class="spinner"></div><div class="spinner-text">NexVision™ generating portrait... (30-60s)</div></div>
+      <div class="spinner-wrap" id="spinner1">
+        <div class="spinner"></div>
+        <div class="spinner-text">NexVision™ generating portrait... (30-60s)</div>
+      </div>
 
       <div class="btn-row">
         <button class="btn btn-back" onclick="goBack(0)">← Back</button>
@@ -296,7 +383,8 @@
   <div class="section" id="sectionGate2">
     <div class="gen-card">
       <div class="gen-card-title">Review Portrait — Confirm Video</div>
-      <p style="color: var(--text-secondary); font-size: .88rem; margin-bottom: 20px;">Portrait generated. Edit script if needed, then generate the video.</p>
+      <p style="color: var(--text-secondary); font-size: .88rem; margin-bottom: 20px;">Portrait generated. Edit script
+        if needed, then generate the video.</p>
 
       <div class="portrait-preview">
         <img id="gate2Portrait" src="" alt="Generated Portrait">
@@ -304,8 +392,10 @@
 
           <div class="preview-box">
             <div class="preview-box-title">Final Script (edit to recalculate cost)</div>
-            <textarea class="form-textarea" id="gate2Script" style="min-height: 70px;" oninput="updateCostPreview('gate2')"></textarea>
-            <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: .8rem; color: var(--text-muted);">
+            <textarea class="form-textarea" id="gate2Script" style="min-height: 70px;"
+              oninput="updateCostPreview('gate2')"></textarea>
+            <div
+              style="display: flex; justify-content: space-between; margin-top: 8px; font-size: .8rem; color: var(--text-muted);">
               <span>Words: <span id="gate2WordCount">0</span> / 52 (target: 44)</span>
               <span>Duration: <span id="gate2Duration">15</span>s</span>
             </div>
@@ -321,12 +411,16 @@
               <span id="gate2Cost">$2.52</span>
               <span class="cost-label">final estimate</span>
             </div>
-            <div id="gate2CostDetails" style="font-size: .8rem; color: var(--text-muted);">Kling O3 Pro · 15s video</div>
+            <div id="gate2CostDetails" style="font-size: .8rem; color: var(--text-muted);">Kling O3 Pro · 15s video
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="spinner-wrap" id="spinner2"><div class="spinner"></div><div class="spinner-text">NexMotion™ generating video... (5-10 min)</div></div>
+      <div class="spinner-wrap" id="spinner2">
+        <div class="spinner"></div>
+        <div class="spinner-text">NexMotion™ generating video... (5-10 min)</div>
+      </div>
 
       <div class="btn-row">
         <button class="btn btn-back" onclick="goBack(1)">← Back</button>
@@ -360,65 +454,67 @@
 
 <script src="{{ static_url('js/app.js') }}"></script>
 <script>
-// Show pipeline elements when user starts
-function startVideoGeneration() {
-  document.getElementById('videoWelcome').style.display = 'none';
-  document.getElementById('videoPhasesCard').style.display = 'block';
-  document.getElementById('videoProgressBar').style.display = 'flex';
-  runPhase0();
-}
-
-// Handle incoming data from Explore or Influencer pages
-document.addEventListener('DOMContentLoaded', () => {
-  // From Explore page
-  const explorePrompt = sessionStorage.getItem('explore_prompt');
-  if (explorePrompt) {
-    document.getElementById('description').value = explorePrompt;
-    sessionStorage.removeItem('explore_prompt');
-    sessionStorage.removeItem('explore_title');
-    // Auto-show the pipeline
+  // Show pipeline elements when user starts
+  function startVideoGeneration() {
     document.getElementById('videoWelcome').style.display = 'none';
     document.getElementById('videoPhasesCard').style.display = 'block';
     document.getElementById('videoProgressBar').style.display = 'flex';
+    runPhase0();
   }
 
-  // From Influencer page
-  const selectedInf = sessionStorage.getItem('selected_influencer');
-  if (selectedInf) {
-    sessionStorage.removeItem('selected_influencer');
-    // Wait for gallery to render, then select
-    setTimeout(() => {
-      selectInfluencer(selectedInf);
+  // Handle incoming data from Explore or Influencer pages
+  document.addEventListener('DOMContentLoaded', () => {
+    // From Explore page
+    const explorePrompt = sessionStorage.getItem('explore_prompt');
+    if (explorePrompt) {
+      document.getElementById('description').value = explorePrompt;
+      sessionStorage.removeItem('explore_prompt');
+      sessionStorage.removeItem('explore_title');
+      // Auto-show the pipeline
       document.getElementById('videoWelcome').style.display = 'none';
       document.getElementById('videoPhasesCard').style.display = 'block';
       document.getElementById('videoProgressBar').style.display = 'flex';
-    }, 100);
-  }
-});
+    }
 
-// Override resetAll to also show welcome back
-const _origReset = typeof resetAll === 'function' ? resetAll : null;
-if (_origReset) {
-  const _newReset = function() {
-    _origReset();
-    document.getElementById('videoWelcome').style.display = 'flex';
-    document.getElementById('videoPhasesCard').style.display = 'none';
-    document.getElementById('videoProgressBar').style.display = 'none';
-  };
-  window.resetAll = _newReset;
-}
+    // From Influencer page
+    const selectedInf = sessionStorage.getItem('selected_influencer');
+    if (selectedInf) {
+      sessionStorage.removeItem('selected_influencer');
+      // Wait for gallery to render, then select
+      setTimeout(() => {
+        selectInfluencer(selectedInf);
+        document.getElementById('videoWelcome').style.display = 'none';
+        document.getElementById('videoPhasesCard').style.display = 'block';
+        document.getElementById('videoProgressBar').style.display = 'flex';
+      }, 100);
+    }
+  });
+
+  // Override resetAll to also show welcome back
+  const _origReset = typeof resetAll === 'function' ? resetAll : null;
+  if (_origReset) {
+    const _newReset = function () {
+      _origReset();
+      document.getElementById('videoWelcome').style.display = 'flex';
+      document.getElementById('videoPhasesCard').style.display = 'none';
+      document.getElementById('videoProgressBar').style.display = 'none';
+    };
+    window.resetAll = _newReset;
+  }
 </script>
 
 <!-- NexBot Widget -->
 <button class="chatbot-fab" id="chatbotFab" title="NexBot — Help Assistant">
   <div class="chatbot-fab-tooltip" id="chatbotTooltip">Ask me anything</div>
-  <img src="{{ static_url('assets/bot_avatar.png') }}" id="chatbotFabImg" style="width: 100px; height: 100px; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6)); transition: var(--transition-fast);">
+  <img src="{{ static_url('assets/bot_avatar.png') }}" id="chatbotFabImg"
+    style="width: 100px; height: 100px; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6)); transition: var(--transition-fast);">
 </button>
 
 <div class="chatbot-panel" id="chatbotPanel">
   <div class="chatbot-header">
     <div class="chatbot-avatar">
-      <img src="{{ static_url('assets/bot_avatar.png') }}" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+      <img src="{{ static_url('assets/bot_avatar.png') }}"
+        style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
     </div>
     <div class="chatbot-header-info">
       <div class="chatbot-header-name">NexBot</div>
@@ -428,7 +524,8 @@ if (_origReset) {
   <div class="chatbot-messages" id="chatbotMessages">
     <div class="chat-msg bot">
       <div class="chat-msg-avatar" style="background: transparent;">
-        <img src="{{ static_url('assets/bot_avatar.png') }}" style="width: 30px; height: 30px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
+        <img src="{{ static_url('assets/bot_avatar.png') }}"
+          style="width: 30px; height: 30px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">
       </div>
       <div class="chat-msg-bubble">
         Hey there! I'm <strong>NexBot</strong>, your NexCHEHRA assistant. I can help you with:
@@ -443,132 +540,135 @@ if (_origReset) {
     </div>
   </div>
   <div class="chatbot-quick-actions" id="chatbotQuickActions">
-    <button class="quick-action-btn" onclick="sendQuickAction('How do I create my first video?')">Create a video</button>
+    <button class="quick-action-btn" onclick="sendQuickAction('How do I create my first video?')">Create a
+      video</button>
     <button class="quick-action-btn" onclick="sendQuickAction('What are the pricing tiers?')">Pricing</button>
     <button class="quick-action-btn" onclick="sendQuickAction('What shot types are available?')">Shot types</button>
-    <button class="quick-action-btn" onclick="sendQuickAction('How does product placement work?')">Product placement</button>
+    <button class="quick-action-btn" onclick="sendQuickAction('How does product placement work?')">Product
+      placement</button>
   </div>
   <div class="chatbot-input-area">
-    <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Ask NexBot anything..." onkeydown="if(event.key==='Enter') sendChatMessage()" autocomplete="off">
+    <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Ask NexBot anything..."
+      onkeydown="if(event.key==='Enter') sendChatMessage()" autocomplete="off">
     <button class="chatbot-send" id="chatbotSend" onclick="sendChatMessage()" title="Send">➤</button>
   </div>
 </div>
 
 <script>
-/* ═══════ NexBot — Chatbot Widget Logic ═══════ */
-(function() {
-  const fab       = document.getElementById('chatbotFab');
-  const panel     = document.getElementById('chatbotPanel');
-  const messages  = document.getElementById('chatbotMessages');
-  const input     = document.getElementById('chatbotInput');
-  const sendBtn   = document.getElementById('chatbotSend');
-  const quickDiv  = document.getElementById('chatbotQuickActions');
+  /* ═══════ NexBot — Chatbot Widget Logic ═══════ */
+  (function () {
+    const fab = document.getElementById('chatbotFab');
+    const panel = document.getElementById('chatbotPanel');
+    const messages = document.getElementById('chatbotMessages');
+    const input = document.getElementById('chatbotInput');
+    const sendBtn = document.getElementById('chatbotSend');
+    const quickDiv = document.getElementById('chatbotQuickActions');
 
-  let isOpen = false;
-  let isSending = false;
+    let isOpen = false;
+    let isSending = false;
 
-  window.toggleChatbot = function() {
-    isOpen = !isOpen;
-    panel.classList.toggle('open', isOpen);
-    fab.classList.toggle('active', isOpen);
-    const tooltip = document.getElementById('chatbotTooltip');
-    if (tooltip) {
-      if (isOpen) tooltip.classList.remove('show');
-      else tooltip.classList.add('show');
+    window.toggleChatbot = function () {
+      isOpen = !isOpen;
+      panel.classList.toggle('open', isOpen);
+      fab.classList.toggle('active', isOpen);
+      const tooltip = document.getElementById('chatbotTooltip');
+      if (tooltip) {
+        if (isOpen) tooltip.classList.remove('show');
+        else tooltip.classList.add('show');
+      }
+      const fabImg = document.getElementById('chatbotFabImg');
+      if (fabImg) {
+        fabImg.style.opacity = isOpen ? '0.5' : '1';
+        fabImg.style.filter = isOpen ? 'grayscale(1) drop-shadow(0 2px 4px rgba(0,0,0,0.4))' : 'drop-shadow(0 4px 6px rgba(0,0,0,0.6))';
+      }
+      if (isOpen) setTimeout(() => input.focus(), 350);
+    };
+
+    window.sendChatMessage = async function () {
+      const text = input.value.trim();
+      if (!text || isSending) return;
+      appendMessage('user', text);
+      input.value = '';
+      isSending = true;
+      sendBtn.disabled = true;
+      quickDiv.style.display = 'none';
+      const typing = showTypingIndicator();
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text }),
+        });
+        const data = await res.json();
+        removeTypingIndicator(typing);
+        appendMessage('bot', formatBotReply(data.reply || 'Sorry, no response received.'));
+      } catch (err) {
+        removeTypingIndicator(typing);
+        appendMessage('bot', 'Sorry, I couldn\'t connect to the server. Please try again.');
+      }
+      isSending = false;
+      sendBtn.disabled = false;
+      input.focus();
+    };
+
+    window.sendQuickAction = function (text) { input.value = text; sendChatMessage(); };
+
+    function appendMessage(role, content) {
+      const msg = document.createElement('div');
+      msg.className = `chat-msg ${role}`;
+      const avatar = document.createElement('div');
+      avatar.className = 'chat-msg-avatar';
+      if (role === 'bot') {
+        avatar.style.background = 'transparent';
+        avatar.innerHTML = `<img src="{{ static_url('assets/bot_avatar.png') }}" style="width: 30px; height: 30px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">`;
+      } else { avatar.textContent = '👤'; }
+      const bubble = document.createElement('div');
+      bubble.className = 'chat-msg-bubble';
+      if (role === 'bot') bubble.innerHTML = content;
+      else bubble.textContent = content;
+      msg.appendChild(avatar);
+      msg.appendChild(bubble);
+      messages.appendChild(msg);
+      if (role === 'bot') requestAnimationFrame(() => msg.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+      else scrollToBottom();
     }
-    const fabImg = document.getElementById('chatbotFabImg');
-    if (fabImg) {
-      fabImg.style.opacity = isOpen ? '0.5' : '1';
-      fabImg.style.filter = isOpen ? 'grayscale(1) drop-shadow(0 2px 4px rgba(0,0,0,0.4))' : 'drop-shadow(0 4px 6px rgba(0,0,0,0.6))';
+
+    function formatBotReply(text) {
+      let safe = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      safe = safe.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      safe = safe.replace(/__(.*?)__/g, '<strong>$1</strong>');
+      safe = safe.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      safe = safe.replace(/`(.*?)`/g, '<code>$1</code>');
+      safe = safe.replace(/^[\-•]\s+(.+)$/gm, '<li>$1</li>');
+      safe = safe.replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>');
+      safe = safe.replace(/<\/ul>\s*<ul>/g, '');
+      safe = safe.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
+      safe = safe.replace(/\n\n/g, '<br><br>');
+      safe = safe.replace(/\n/g, '<br>');
+      return safe;
     }
-    if (isOpen) setTimeout(() => input.focus(), 350);
-  };
 
-  window.sendChatMessage = async function() {
-    const text = input.value.trim();
-    if (!text || isSending) return;
-    appendMessage('user', text);
-    input.value = '';
-    isSending = true;
-    sendBtn.disabled = true;
-    quickDiv.style.display = 'none';
-    const typing = showTypingIndicator();
-    try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text }),
-      });
-      const data = await res.json();
-      removeTypingIndicator(typing);
-      appendMessage('bot', formatBotReply(data.reply || 'Sorry, no response received.'));
-    } catch (err) {
-      removeTypingIndicator(typing);
-      appendMessage('bot', 'Sorry, I couldn\'t connect to the server. Please try again.');
+    function showTypingIndicator() {
+      const el = document.createElement('div');
+      el.className = 'typing-indicator';
+      el.innerHTML = `<div class="chat-msg-avatar" style="background: transparent;"><img src="{{ static_url('assets/bot_avatar.png') }}" style="width: 30px; height: 30px; object-fit: contain;"></div><div class="typing-dots"><span></span><span></span><span></span></div>`;
+      messages.appendChild(el);
+      scrollToBottom();
+      return el;
     }
-    isSending = false;
-    sendBtn.disabled = false;
-    input.focus();
-  };
 
-  window.sendQuickAction = function(text) { input.value = text; sendChatMessage(); };
+    function removeTypingIndicator(el) { if (el && el.parentNode) el.parentNode.removeChild(el); }
+    function scrollToBottom() { requestAnimationFrame(() => { messages.scrollTop = messages.scrollHeight; }); }
 
-  function appendMessage(role, content) {
-    const msg = document.createElement('div');
-    msg.className = `chat-msg ${role}`;
-    const avatar = document.createElement('div');
-    avatar.className = 'chat-msg-avatar';
-    if (role === 'bot') {
-      avatar.style.background = 'transparent';
-      avatar.innerHTML = '<img src="{{ static_url('assets/bot_avatar.png') }}" style="width: 30px; height: 30px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));">';
-    } else { avatar.textContent = '👤'; }
-    const bubble = document.createElement('div');
-    bubble.className = 'chat-msg-bubble';
-    if (role === 'bot') bubble.innerHTML = content;
-    else bubble.textContent = content;
-    msg.appendChild(avatar);
-    msg.appendChild(bubble);
-    messages.appendChild(msg);
-    if (role === 'bot') requestAnimationFrame(() => msg.scrollIntoView({ behavior: 'smooth', block: 'start' }));
-    else scrollToBottom();
-  }
+    // FAB click
+    fab.addEventListener('click', (e) => {
+      if (!e.defaultPrevented) toggleChatbot();
+    });
 
-  function formatBotReply(text) {
-    let safe = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    safe = safe.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    safe = safe.replace(/__(.*?)__/g, '<strong>$1</strong>');
-    safe = safe.replace(/\*(.*?)\*/g, '<em>$1</em>');
-    safe = safe.replace(/`(.*?)`/g, '<code>$1</code>');
-    safe = safe.replace(/^[\-•]\s+(.+)$/gm, '<li>$1</li>');
-    safe = safe.replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>');
-    safe = safe.replace(/<\/ul>\s*<ul>/g, '');
-    safe = safe.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
-    safe = safe.replace(/\n\n/g, '<br><br>');
-    safe = safe.replace(/\n/g, '<br>');
-    return safe;
-  }
-
-  function showTypingIndicator() {
-    const el = document.createElement('div');
-    el.className = 'typing-indicator';
-    el.innerHTML = `<div class="chat-msg-avatar" style="background: transparent;"><img src="{{ static_url('assets/bot_avatar.png') }}" style="width: 30px; height: 30px; object-fit: contain;"></div><div class="typing-dots"><span></span><span></span><span></span></div>`;
-    messages.appendChild(el);
-    scrollToBottom();
-    return el;
-  }
-
-  function removeTypingIndicator(el) { if (el && el.parentNode) el.parentNode.removeChild(el); }
-  function scrollToBottom() { requestAnimationFrame(() => { messages.scrollTop = messages.scrollHeight; }); }
-
-  // FAB click
-  fab.addEventListener('click', (e) => {
-    if (!e.defaultPrevented) toggleChatbot();
-  });
-
-  setTimeout(() => {
-    const tooltip = document.getElementById('chatbotTooltip');
-    if (!isOpen && tooltip) tooltip.classList.add('show');
-  }, 1000);
-})();
+    setTimeout(() => {
+      const tooltip = document.getElementById('chatbotTooltip');
+      if (!isOpen && tooltip) tooltip.classList.add('show');
+    }, 1000);
+  })();
 </script>
 {% endblock %}

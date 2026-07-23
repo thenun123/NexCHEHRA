@@ -1,8 +1,25 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, current_user, login_required
 from app.models import db, User
+import re
 
 auth_bp = Blueprint('auth', __name__)
+
+
+def password_requirements_errors(password: str) -> list:
+    """Returns a list of unmet password requirements (empty list = strong enough)."""
+    errors = []
+    if len(password) < 8:
+        errors.append("at least 8 characters")
+    if not re.search(r"[A-Z]", password):
+        errors.append("one uppercase letter")
+    if not re.search(r"[a-z]", password):
+        errors.append("one lowercase letter")
+    if not re.search(r"[0-9]", password):
+        errors.append("one number")
+    if not re.search(r"[^A-Za-z0-9]", password):
+        errors.append("one special character (e.g. !@#$%)")
+    return errors
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
@@ -49,6 +66,13 @@ def register():
             
         if password != confirm_password:
             return render_template('register.html', error="Passwords do not match")
+
+        weak_points = password_requirements_errors(password)
+        if weak_points:
+            return render_template(
+                'register.html',
+                error="Password must have " + ", ".join(weak_points) + "."
+            )
             
         existing_user = User.query.filter_by(username=username).first()
         if existing_user:
